@@ -10,6 +10,6 @@ terraform {
 provider "local" {}
 
 resource "local_file" "sentiment_env" {
-  filename = "${path.module}/sentiment.env"
+  filename = "${path.module}/../config/sentiment.env"
   content  = "BATCH=500\n"
 }

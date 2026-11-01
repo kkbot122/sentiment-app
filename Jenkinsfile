@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        SENTIMENT_PROPERTIES = 'sentiment.properties'
+        SENTIMENT_PROPERTIES = 'config/sentiment.properties'
         DOCKER_IMAGE = 'sentiment-worker:latest'
     }
 
@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Package Container') {
             steps {
-                sh 'docker build -t sentiment-worker:latest .'
+                sh 'docker build -t sentiment-worker:latest -f docker/Dockerfile docker'
                 echo 'Built Docker image sentiment-worker:latest'
             }
         }
